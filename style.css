@@ -1,0 +1,27 @@
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+}
+
+img {
+    display: block;
+    width: 400px;
+    max-width: 100%;
+}
+
+.flex-space {
+    /*background-color: gray;*/
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
