@@ -1,9 +1,48 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
-<title>Under Construction</title>
+    <title>Dog Breed Page</title>
 </head>
-<bodyd>
-<p>This page is under construction. Please come back soon!</p>
+<body>
+
+
+    <ul id="dogBreeds"></ul>
+    <img id="image" src=""/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+        $.get( "https://dog.ceo/api/breeds/list/all", function(breeds) {
+            // console.log(breeds.message)
+
+            // $( "#dogBreeds").html("<ul>");
+            for (var breed in breeds.message){
+                // console.log(breed);
+                $( "#dogBreeds").append( "<li>" + breed + "</li>");
+                // debugger;
+                // $( "#dogBreeds" ).html( $( "#dogBreeds" ).append( breed ) );
+            }
+            // $( "#dogBreeds" ).html(breeds);
+         })
+
+         $.get( "https://dog.ceo/api/breeds/image/random" , function(randomDog) {
+
+             $( "#image").attr("src", randomDog.message);
+
+         })
+
+
+
+        //
+        // var dogList = [];
+        // // dogList.push
+        // for (var i = 0; i < dogList.length; i++){
+        //
+        // }
+
+    </script>
+
+
+    <!-- <p>This page is under construction. Please come back soon!</p> -->
 </body>
 </html>
