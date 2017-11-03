@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8">
+    <title>Dog Breed Page</title>
+</head>
+<body>
+
+    <div class="flex-display-grid">
+        <ul id="dogBreeds"></ul>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+
+            $.get( "https://dog.ceo/api/breeds/list/all", function(breeds) {
+                for (var indexBreed in breeds.message){
+                    // debugger;
+
+                    (function (currentBreed){
+                        $.get( "https://dog.ceo/api/breed/"+currentBreed+"/images/random", function(randomDog) {
+                            $( "#dogBreeds").append( "<li>" + '<a href="https://en.wikipedia.org/wiki/Special:Search?search='
+                            + indexBreed + '">' + '<img class="image" src="' + randomDog.message + '"/>' + "<p>" + currentBreed
+                            + "</p>" + "</a>" + "</li>");
+                            // debugger;
+                        })
+                    })(indexBreed)
+                }
+             })
+        </script>
+    </div>
+</body>
+</html>
